@@ -36,7 +36,22 @@ class RoomsReservation(models.Model):
         string="End hour"
     )
     state = fields.Selection([
-        ("0", "draft"),
-        ("1", "Confirmed"),
-        ("2", "Reserved"),
+        ("draft", "draft"),
+        ("confirmed", "Confirmed"),
+        ("reserved", "Reserved"),
     ], string="State")
+
+    def move_draft(self):
+        self.write(
+            {"state": "draft"}
+        )
+
+    def move_confirmed(self):
+        self.write(
+            {"state": "confirmed"}
+        )
+
+    def move_reserved(self):
+        self.write(
+            {"state": "reserved"}
+        )

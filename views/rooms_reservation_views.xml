@@ -24,6 +24,9 @@
         <field name="arch" type="xml">
             <form string="Room Reservation">
                 <header>
+                    <button name="move_draft" type="object" class="oe_stat_button" string="Move to draft"/>
+                    <button name="move_confirmed" type="object" class="oe_stat_button" string="Move to confirmed"/>
+                    <button name="move_reserved" type="object" class="oe_stat_button" string="Move to reserved"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
@@ -60,7 +63,7 @@
         <field name="arch" type="xml">
             <kanban>
                 <templates>
-                    <t t-name="kanban-box">
+                    <t t-name="kanban-box" default_group_by="state">
                         <div class="oe_kanban_global_click">
                             <div class="oe_kanban_card">
                                 <div class="oe_kanban_card_header">
@@ -78,7 +81,7 @@
         <field name="name">Room Reservation Action</field>
         <field name="res_model">rooms.reservation</field>
         <field name="view_mode">kanban,tree,form</field>
-        <field name="view_id" ref="rooms_reservation_view_tree"/>
+        <field name="view_id" ref="rooms_reservations_view_kanban"/>
     </record>
 
 </odoo>
