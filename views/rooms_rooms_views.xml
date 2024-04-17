@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- SPECIALTY -->
+    <record id="specialty_view_tree" model="ir.ui.view">
+        <field name="name">Room Specialty Tree</field>
+        <field name="model">rooms.specialty</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_specialty" model="ir.actions.act_window">
+        <field name="name">Room Specialty Action</field>
+        <field name="res_model">rooms.specialty</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="specialty_view_tree"/>
+    </record>
+
+    <!-- ROOMS -->
+    <record id="rooms_rooms_view_tree" model="ir.ui.view">
+        <field name="name">Rooms Tree</field>
+        <field name="model">rooms.rooms</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="responsible_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="rooms_rooms_view_form" model="ir.ui.view">
+        <field name="name">Rooms Form</field>
+        <field name="model">rooms.rooms</field>
+        <field name="arch" type="xml">
+            <form string="Rooms">
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="responsible_id"/>
+                        </group>
+                        <group>
+                            <field name="price"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="availabilty" string="Availabilty">
+                            <field name="availability_ids">
+                                <tree editable="bottom">
+                                    <field name="weeksdays"/>
+                                    <field name="init_hour" widget="float_time"/>
+                                    <field name="end_hour" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_rooms_rooms" model="ir.actions.act_window">
+        <field name="name">Room Action</field>
+        <field name="res_model">rooms.rooms</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="rooms_rooms_view_tree"/>
+    </record>
+
+</odoo>

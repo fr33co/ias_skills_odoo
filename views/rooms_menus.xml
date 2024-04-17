@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="room_root"
+        name="Rooms Reservation"
+        web_icon="ias_skills_odoo,static/description/icon.png"
+        sequence="10"/>
+
+    <menuitem
+        id="room_reservation_root"
+        name="Reservations"
+        parent="room_root"
+        sequence="20"/>
+
+    <menuitem
+        id="room_reservation"
+        name="Rooms Reservation"
+        action="action_rooms_reservation"
+        parent="room_reservation_root"
+        sequence="21"/>
+
+    <menuitem
+        id="room_configuration"
+        name="Configuration"
+        parent="room_root"
+        sequence="30"/>
+
+    <menuitem
+        id="room_specialty"
+        name="Rooms Specialty"
+        action="action_specialty"
+        parent="room_configuration"
+        sequence="31"/>
+
+    <menuitem
+        id="rooms_rooms"
+        name="Rooms"
+        action="action_rooms_rooms"
+        parent="room_configuration"
+        sequence="32"/>
+
+</odoo>

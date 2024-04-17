@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ROOMS RESERVATION -->
+    <record id="rooms_reservation_view_tree" model="ir.ui.view">
+        <field name="name">Rooms Reservation Tree</field>
+        <field name="model">rooms.reservation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="doctor_id"/>
+                <field name="room_id"/>
+                <field name="specialty_id"/>
+                <field name="weeksdays"/>
+                <field name="init_hour" widget="float_time"/>
+                <field name="end_hour" widget="float_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="rooms_reservation_view_form" model="ir.ui.view">
+        <field name="name">Rooms Reservation Form</field>
+        <field name="model">rooms.reservation</field>
+        <field name="arch" type="xml">
+            <form string="Room Reservation">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="doctor_id"/>
+                            <field name="room_id"/>
+                        </group>
+                        <group>
+                            <field name="specialty_id"/>
+                            <field name="price"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="weeksdays"/>
+                        </group>
+                        <group>
+                            <field name="init_hour" widget="float_time"/>
+                            <field name="end_hour" widget="float_time"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="rooms_reservations_view_kanban" model="ir.ui.view">
+        <field name="name">Rooms Reservation Kanban</field>
+        <field name="model">rooms.reservation</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_card">
+                                <div class="oe_kanban_card_header">
+                                    <a class="oe_kanban_card_title">Reservation - <field name="name"/></a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_rooms_reservation" model="ir.actions.act_window">
+        <field name="name">Room Reservation Action</field>
+        <field name="res_model">rooms.reservation</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="rooms_reservation_view_tree"/>
+    </record>
+
+</odoo>

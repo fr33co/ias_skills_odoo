@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rooms_specialty,access_rooms_specialty,ias_skills_odoo.model_rooms_specialty,base.group_user,1,1,1,1
+access_rooms_rooms,access_rooms_rooms,ias_skills_odoo.model_rooms_rooms,base.group_user,1,1,1,1
+access_rooms_availability,access_rooms_availability,ias_skills_odoo.model_rooms_availability,base.group_user,1,1,1,1
+access_rooms_reservation,access_rooms_reservation,ias_skills_odoo.model_rooms_reservation,base.group_user,1,1,1,1
